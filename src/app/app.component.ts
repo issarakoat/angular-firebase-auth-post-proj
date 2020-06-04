@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  active = 1;
   constructor(private http: HttpClient) {}
 
   ngOnInit() {}

@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Sign up example</h1>
+  <form #postForm="ngForm" (ngSubmit)="onSignupPost(postForm.value)">
+    <div class="form-group">
+      <label for="title">Email</label>
+      <input
+        type="text"
+        class="form-control"
+        id="email"
+        required
+        ngModel
+        email
+        name="email"
+      />
+      <label for="title">Password</label>
+      <input
+        type="text"
+        class="form-control"
+        id="email"
+        required
+        ngModel
+        email
+        name="email"
+      />
+    </div>
+  </form>
+</div>

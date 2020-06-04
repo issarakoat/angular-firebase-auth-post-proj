@@ -1,1 +1,26 @@
-<app-post></app-post>
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+  <li [ngbNavItem]="1">
+    <a ngbNavLink>Sign up</a>
+    <ng-template ngbNavContent>
+      <app-auth-signup></app-auth-signup>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="2">
+    <a ngbNavLink>Sign in</a>
+    <ng-template ngbNavContent>
+      <p>sign in is coming</p>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="3">
+    <a ngbNavLink>Post - CRUD</a>
+    <ng-template ngbNavContent>
+      <app-post></app-post>
+    </ng-template>
+  </li>
+</ul>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+<pre>Active: {{ active }}</pre>
+
+
