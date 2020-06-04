@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PostModule } from './post.model';
+import { PostModel } from './post.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class PostService {
-  loadedPosts: PostModule[] = [];
+  loadedPosts: PostModel[] = [];
   constructor(private http: HttpClient) { }
 
   onFetching() {
@@ -18,20 +18,28 @@ export class PostService {
     );
 
   }
-  onCreate(postData: PostModule) {
+  onCreate(postData: PostModel) {
     return this.http
     .post<{ name: string }>(
       environment.firebase.databaseURL + '/posts.json',
       postData
     );
   }
-  onDelete() {
-
+  onDelete(id: string) {
+    return this.http.delete(
+      environment.firebase.databaseURL + '/posts/' + id + '.json');
   }
-  onUpdate() {
-
+  onUpdate(id: string, title: string, content: string) {
+    return this.http.put(
+      environment.firebase.databaseURL + '/posts/' + id + '.json',
+      {
+        title: title,
+        content: content
+      }
+    )
   }
   onClear() {
-
+    return this.http.delete(
+      environment.firebase.databaseURL + '/posts.json');
   }
 }
