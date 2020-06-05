@@ -1,6 +1,9 @@
 <div class="container">
-  <h1>Sign up example</h1>
-  <form #authForm="ngForm" (ngSubmit)="onSignupPost()">
+  <h1>Sign up/Sign in example</h1>
+  <div *ngIf="isLoading" style="text-align: center;">
+    <p>Loading ...</p>
+  </div>
+  <form #authForm="ngForm" (ngSubmit)="OnSubmit()">
     <div class="form-group">
       <label for="email">Email</label>
       <input
@@ -27,11 +30,16 @@
       type='submit'
       [disabled]="!authForm.valid"
       >
-        Submit
+        {{ isLoginMode ? 'Log in' : 'Sign up'}}
+      </button>
+      <button *ngIf='isLogin' (click)='logOut()' class="btn btn-warning">
+        Log out
       </button>
     </div>
   </form>
+    <button class="btn btn-primary" (click)="onSwitchMode()">Switch mode</button>
   <h3>Display Response</h3>
+  <p *ngIf="isLogin">Status : Youre currently loggined</p>
   <p>Email : {{ meEmail }}</p>
   <p>idToken : {{ meIdToken }}</p>
 </div>

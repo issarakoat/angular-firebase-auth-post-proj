@@ -25,6 +25,9 @@ export class AuthSignupComponent implements OnInit {
   @ViewChild('authForm', {static: false }) signUpForm: NgForm
   meEmail : string;
   meIdToken : string;
+  isLoading = false;
+  isLoginMode = false;
+  isLogin = false;
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -41,8 +44,20 @@ export class AuthSignupComponent implements OnInit {
     // this.autoLogout(expiresIn * 1000);
     localStorage.setItem('userData', JSON.stringify(user));
   }
-  onSignupPost(){
+  OnSubmit(){
+    if(this.isLoginMode){
+      this.login();
+    }
+    else{
+      this.signUp();
+    }
+  }
+  onSwitchMode(){
+    this.isLoginMode = !this.isLoginMode;
+  }
+  signUp(){
     console.log(this.signUpForm.value.email)
+    this.isLoading = true;
     this.http.post<AuthResponseData>(
       environment.firebase.signUp + environment.firebase.apiKey,
       {
@@ -55,9 +70,9 @@ export class AuthSignupComponent implements OnInit {
       catchError(this.handleError),
       tap(resData => {
         this.handleAuthentication(
-          this.meEmail = resData.email,
+          resData.email,
           resData.localId,
-          this.meIdToken = resData.idToken,
+          resData.idToken,
           +resData.expiresIn
         );
       })
@@ -66,7 +81,9 @@ export class AuthSignupComponent implements OnInit {
       resData => {
         console.log(resData);
         this.signUpForm.reset();
-        // this.isLoading = false;
+        this.isLoading = false;
+        this.meEmail = resData.email;
+        this.meIdToken = resData.idToken
         // this.router.navigate(['/recipes']);
       },
       errorMessage => {
@@ -75,6 +92,41 @@ export class AuthSignupComponent implements OnInit {
         // this.isLoading = false;
       }
     );
+  }
+  login(){
+    this.http
+    .post<AuthResponseData>(
+      environment.firebase.login + environment.firebase.apiKey,
+      {
+        email: this.signUpForm.value.email,
+        password: this.signUpForm.value.password,
+        returnSecureToken: true
+      }
+    )
+    .pipe(
+      catchError(this.handleError),
+      tap(resData => {
+        this.handleAuthentication(
+          resData.email,
+          resData.localId,
+          resData.idToken,
+          +resData.expiresIn
+        );
+      })
+    )
+    .subscribe(
+      resData => {
+        console.log(resData);
+        this.isLoading = false;
+        this.isLoginMode = true;
+        this.isLogin = true;
+        this.meEmail = resData.email;
+        this.meIdToken = resData.idToken
+        // this.router.navigate(['/recipes']);
+      })
+    }
+  logOut(){
+    alert('log out')
   }
   private handleError(errorRes: HttpErrorResponse) {
     let errorMessage = 'An unknown error occurred!';
