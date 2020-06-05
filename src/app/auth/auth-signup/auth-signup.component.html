@@ -1,27 +1,37 @@
 <div class="container">
   <h1>Sign up example</h1>
-  <form #postForm="ngForm" (ngSubmit)="onSignupPost(postForm.value)">
+  <form #authForm="ngForm" (ngSubmit)="onSignupPost()">
     <div class="form-group">
-      <label for="title">Email</label>
+      <label for="email">Email</label>
       <input
-        type="text"
-        class="form-control"
+        type="email"
         id="email"
-        required
+        class="form-control"
         ngModel
-        email
         name="email"
+        required
+        email
       />
-      <label for="title">Password</label>
+      <label for="password">Password</label>
       <input
-        type="text"
-        class="form-control"
-        id="email"
-        required
-        ngModel
-        email
-        name="email"
+          type="password"
+          id="password"
+          class="form-control"
+          ngModel
+          name="password"
+          required
+          minlength="6"
       />
+      <button
+      class="btn btn-primary"
+      type='submit'
+      [disabled]="!authForm.valid"
+      >
+        Submit
+      </button>
     </div>
   </form>
+  <h3>Display Response</h3>
+  <p>Email : {{ meEmail }}</p>
+  <p>idToken : {{ meIdToken }}</p>
 </div>
