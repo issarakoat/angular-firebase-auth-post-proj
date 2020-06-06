@@ -32,14 +32,16 @@
       >
         {{ isLoginMode ? 'Log in' : 'Sign up'}}
       </button>
-      <button *ngIf='isLogin' (click)='logOut()' class="btn btn-warning">
+      <button *ngIf='isLogin' (click)='logout()' class="btn btn-warning">
         Log out
       </button>
     </div>
   </form>
     <button class="btn btn-primary" (click)="onSwitchMode()">Switch mode</button>
   <h3>Display Response</h3>
-  <p *ngIf="isLogin">Status : Youre currently loggined</p>
-  <p>Email : {{ meEmail }}</p>
-  <p>idToken : {{ meIdToken }}</p>
+  <div *ngIf="isLogin">
+    <p>Status : Youre currently loggined</p>
+    <p>Email : {{ user.getValue().email }}</p>
+    <p>idToken : {{ user.getValue().token }}</p>
+</div>
 </div>
