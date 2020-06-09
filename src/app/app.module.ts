@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { PostComponent } from './post/post/post.component';
 import { AuthSignupComponent } from './auth/auth-signup/auth-signup.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UploadImagesComponent } from './upload-images/upload-images.component';
 
 @NgModule({
-  declarations: [AppComponent, PostComponent, AuthSignupComponent],
+  declarations: [AppComponent, PostComponent, AuthSignupComponent, UploadImagesComponent],
   imports: [
     BrowserModule,
     FormsModule,
