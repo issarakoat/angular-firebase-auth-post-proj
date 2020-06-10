@@ -14,6 +14,7 @@ import { map } from "rxjs/operators";
 })
 export class PostComponent implements OnInit {
   @ViewChild("postForm", { static: false }) meForm: NgForm;
+  filterTitle='';
   loadedPosts: PostModel[] = [];
   isFetching = false;
   isUpdate = false;

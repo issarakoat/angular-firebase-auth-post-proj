@@ -8,9 +8,17 @@ import { PostComponent } from './post/post/post.component';
 import { AuthSignupComponent } from './auth/auth-signup/auth-signup.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UploadImagesComponent } from './upload-images/upload-images.component';
+import { FilteredTitlePipe } from './post/filtered-title.pipe';
+import { ReversePipe } from './post/reverse.pipe';
 
 @NgModule({
-  declarations: [AppComponent, PostComponent, AuthSignupComponent, UploadImagesComponent],
+  declarations: [
+    AppComponent,
+    PostComponent,
+    AuthSignupComponent,
+    UploadImagesComponent,
+    FilteredTitlePipe,
+    ReversePipe],
   imports: [
     BrowserModule,
     FormsModule,
