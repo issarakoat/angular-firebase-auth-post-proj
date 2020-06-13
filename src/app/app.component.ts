@@ -8,8 +8,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit {
   active = 1;
+  rootNum: number = 0;
+  message;
   constructor(private http: HttpClient) {}
 
   ngOnInit() {}
+  OnFiredIncrementNum(num: number){
+    this.rootNum = num;
+  }
+  onFiredMessage(message: string){
+    this.message = message;
+  }
 
 }

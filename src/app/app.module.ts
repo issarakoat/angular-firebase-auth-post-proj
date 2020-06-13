@@ -10,6 +10,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UploadImagesComponent } from './upload-images/upload-images.component';
 import { FilteredTitlePipe } from './post/filtered-title.pipe';
 import { ReversePipe } from './post/reverse.pipe';
+import { ParentComponent } from './input-output/parent/parent.component';
+import { ChildComponent } from './input-output/child/child.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ReversePipe } from './post/reverse.pipe';
     AuthSignupComponent,
     UploadImagesComponent,
     FilteredTitlePipe,
-    ReversePipe],
+    ReversePipe,
+    ParentComponent,
+    ChildComponent],
   imports: [
     BrowserModule,
     FormsModule,

@@ -1,0 +1,10 @@
+<div class="container">
+    <h4>I got {{ number }} from parent</h4>
+
+  <p>Message to parent</p>
+  <input type="text"
+  class="form-control"
+  [(ngModel)]='childMessage'>
+  <p>Message is {{ childMessage }}</p>
+  <button (click)="onSendMessage()" class="btn btn-primary">Send Message to parent</button>
+</div>

@@ -17,6 +17,13 @@
       <app-upload-images></app-upload-images>
     </ng-template>
   </li>
+  <li [ngbNavItem]="4">
+    <a ngbNavLink>Input output emitter</a>
+    <ng-template ngbNavContent>
+      <app-parent (FiredIncrementNum)='OnFiredIncrementNum($event)' [messageFromChild] = 'message' ></app-parent>
+      <app-child [number]='rootNum' (fireSendMessage)='onFiredMessage($event)' ></app-child>
+    </ng-template>
+  </li>
 </ul>
 
 <div [ngbNavOutlet]="nav" class="mt-2"></div>

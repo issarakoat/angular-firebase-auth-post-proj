@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>This is the parent</h1>
+    <p>Will send num  to child when Click</p>
+    <button (click)='onClick()' class="btn btn-primary">start</button>
+    <button (click)='onStop()' class="btn btn-danger">stop</button>
+  </div>
+  <div class="container">
+    <p>Message from child is {{ messageFromChild }}</p>
+  </div>
+</div>
