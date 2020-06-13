@@ -12,6 +12,7 @@ import { FilteredTitlePipe } from './post/filtered-title.pipe';
 import { ReversePipe } from './post/reverse.pipe';
 import { ParentComponent } from './input-output/parent/parent.component';
 import { ChildComponent } from './input-output/child/child.component';
+import { ViewChildCompComponent, Pane } from './view-child-comp/view-child-comp.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { ChildComponent } from './input-output/child/child.component';
     FilteredTitlePipe,
     ReversePipe,
     ParentComponent,
-    ChildComponent],
+    ChildComponent,
+    ViewChildCompComponent,
+    Pane],
   imports: [
     BrowserModule,
     FormsModule,

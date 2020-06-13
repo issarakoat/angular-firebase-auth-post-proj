@@ -24,6 +24,12 @@
       <app-child [number]='rootNum' (fireSendMessage)='onFiredMessage($event)' ></app-child>
     </ng-template>
   </li>
+  <li [ngbNavItem]="5">
+    <a ngbNavLink>View Child</a>
+    <ng-template ngbNavContent>
+      <app-view-child-comp></app-view-child-comp>
+    </ng-template>
+  </li>
 </ul>
 
 <div [ngbNavOutlet]="nav" class="mt-2"></div>
