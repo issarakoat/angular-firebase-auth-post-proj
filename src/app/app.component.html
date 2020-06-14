@@ -30,6 +30,13 @@
       <app-view-child-comp></app-view-child-comp>
     </ng-template>
   </li>
+  <li [ngbNavItem]="6">
+    <a ngbNavLink>Behavier Subject</a>
+    <ng-template ngbNavContent>
+      <app-behavier-subject></app-behavier-subject>
+      <app-behave-child></app-behave-child>
+    </ng-template>
+  </li>
 </ul>
 
 <div [ngbNavOutlet]="nav" class="mt-2"></div>

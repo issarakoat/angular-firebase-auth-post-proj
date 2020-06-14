@@ -13,6 +13,8 @@ import { ReversePipe } from './post/reverse.pipe';
 import { ParentComponent } from './input-output/parent/parent.component';
 import { ChildComponent } from './input-output/child/child.component';
 import { ViewChildCompComponent, Pane } from './view-child-comp/view-child-comp.component';
+import { BehavierSubjectComponent } from './behavier-subject/behavier-subject.component';
+import { BehaveChildComponent } from './behavier-subject/behave-child/behave-child.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ViewChildCompComponent, Pane } from './view-child-comp/view-child-comp.
     ParentComponent,
     ChildComponent,
     ViewChildCompComponent,
-    Pane],
+    Pane,
+    BehavierSubjectComponent,
+    BehaveChildComponent],
   imports: [
     BrowserModule,
     FormsModule,
