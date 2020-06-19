@@ -37,6 +37,12 @@
       <app-behave-child></app-behave-child>
     </ng-template>
   </li>
+  <li [ngbNavItem]="7">
+    <a ngbNavLink>Directives</a>
+    <ng-template ngbNavContent>
+      <app-directives></app-directives>
+    </ng-template>
+  </li>
 </ul>
 
 <div [ngbNavOutlet]="nav" class="mt-2"></div>

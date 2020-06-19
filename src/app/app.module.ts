@@ -15,6 +15,8 @@ import { ChildComponent } from './input-output/child/child.component';
 import { ViewChildCompComponent, Pane } from './view-child-comp/view-child-comp.component';
 import { BehavierSubjectComponent } from './behavier-subject/behavier-subject.component';
 import { BehaveChildComponent } from './behavier-subject/behave-child/behave-child.component';
+import { DirectivesComponent } from './directives/directives.component';
+import { BgHighlightDirective } from './directives/bg-highlight.directive';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { BehaveChildComponent } from './behavier-subject/behave-child/behave-chi
     ViewChildCompComponent,
     Pane,
     BehavierSubjectComponent,
-    BehaveChildComponent],
+    BehaveChildComponent,
+    DirectivesComponent,
+    BgHighlightDirective],
   imports: [
     BrowserModule,
     FormsModule,
