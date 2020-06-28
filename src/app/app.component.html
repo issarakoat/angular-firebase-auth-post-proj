@@ -20,8 +20,14 @@
   <li [ngbNavItem]="4">
     <a ngbNavLink>Input output emitter</a>
     <ng-template ngbNavContent>
-      <app-parent (FiredIncrementNum)='OnFiredIncrementNum($event)' [messageFromChild] = 'message' ></app-parent>
-      <app-child [number]='rootNum' (fireSendMessage)='onFiredMessage($event)' ></app-child>
+      <app-parent
+        (FiredIncrementNum)="OnFiredIncrementNum($event)"
+        [messageFromChild]="message"
+      ></app-parent>
+      <app-child
+        [number]="rootNum"
+        (fireSendMessage)="onFiredMessage($event)"
+      ></app-child>
     </ng-template>
   </li>
   <li [ngbNavItem]="5">
@@ -43,10 +49,14 @@
       <app-directives></app-directives>
     </ng-template>
   </li>
+  <li [ngbNavItem]="8">
+    <a ngbNavLink>Observable</a>
+    <ng-template ngbNavContent>
+      <app-observable></app-observable>
+    </ng-template>
+  </li>
 </ul>
 
 <div [ngbNavOutlet]="nav" class="mt-2"></div>
 
 <pre>Active: {{ active }}</pre>
-
-

@@ -17,6 +17,7 @@ import { BehavierSubjectComponent } from './behavier-subject/behavier-subject.co
 import { BehaveChildComponent } from './behavier-subject/behave-child/behave-child.component';
 import { DirectivesComponent } from './directives/directives.component';
 import { BgHighlightDirective } from './directives/bg-highlight.directive';
+import { ObservableComponent } from './observable/observable.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { BgHighlightDirective } from './directives/bg-highlight.directive';
     BehavierSubjectComponent,
     BehaveChildComponent,
     DirectivesComponent,
-    BgHighlightDirective],
+    BgHighlightDirective,
+    ObservableComponent],
   imports: [
     BrowserModule,
     FormsModule,
